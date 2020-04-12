@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "ae48617f-0ff5-4921-adea-379fe0cba832",
+		"name": "httpbin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "98025db7-b2d1-498e-8f5d-0cb52ae51b56",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "httpbin.org/get?myparameter=4",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "myparameter",
+							"value": "4"
+						}
+					]
+				},
+				"description": "My first POSTMAN GET request"
+			},
+			"response": []
+		},
+		{
+			"name": "Variable_GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "058703d8-3151-4246-a635-b73d69bc0c0e",
+						"exec": [
+							"let response = pm.response.json();",
+							"pm.globals.set(\"uuid\", response.uuid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://httpbin.org/uuid",
+					"protocol": "https",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"uuid"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Variable_GET",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://httpbin.org/uuid",
+							"protocol": "https",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"uuid"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 07 Apr 2020 23:53:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/19.9.0"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"uuid\": \"606267c1-4070-4527-a992-146acdf68d2d\"\n}"
+				}
+			]
+		},
+		{
+			"name": "POST request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "065c63dc-e84a-4fb8-a585-94d9f37e8694",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Ganesh\",\n\t\"email\" : \"ganesh@example.com\",\n\t\"id\" : \"{{uuid}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://httpbin.org/post",
+					"protocol": "https",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cookies_request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://requestbin.net/r/1ov924k1",
+					"protocol": "http",
+					"host": [
+						"requestbin",
+						"net"
+					],
+					"path": [
+						"r",
+						"1ov924k1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
