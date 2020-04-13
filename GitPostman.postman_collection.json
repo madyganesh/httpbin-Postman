@@ -1,0 +1,49 @@
+{
+	"info": {
+		"_postman_id": "13ac7d97-fce6-4263-a60c-4adf460825f1",
+		"name": "GitPostman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET request Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "98025db7-b2d1-498e-8f5d-0cb52ae51b56",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "httpbin.org/get?myparameter=4",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "myparameter",
+							"value": "4"
+						}
+					]
+				},
+				"description": "My first POSTMAN GET request"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
